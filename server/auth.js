@@ -6,7 +6,11 @@ const socketManager = require("./server-socket");
 //    TODO: replace with your own CLIENT_ID
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 const CLIENT_ID = "104820923294-3q96mdhnj7gs3l9uhckteac8jgouj27q.apps.googleusercontent.com";
+=======
+const CLIENT_ID = "121479668229-t5j82jrbi9oejh7c8avada226s75bopn.apps.googleusercontent.com";
+>>>>>>> parent of 95cdd8f (Skeleton code)
 =======
 const CLIENT_ID = "121479668229-t5j82jrbi9oejh7c8avada226s75bopn.apps.googleusercontent.com";
 >>>>>>> parent of 95cdd8f (Skeleton code)
