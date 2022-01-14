@@ -4,13 +4,11 @@ import { GoogleMap, withScriptjs, withGoogleMap } from "react-google-maps";
 function helper_Map(){
     return (
       <GoogleMap 
-        defaultZoom={15}
+        defaultZoom={15 }
         defaultCenter={{ lat: 42.36046358484204, lng: -71.09451405362468}}
       />
     );
-  };
-
-
+  }
   const WrappedMap = withScriptjs(withGoogleMap(helper_Map));
 
   export default function Map(){
