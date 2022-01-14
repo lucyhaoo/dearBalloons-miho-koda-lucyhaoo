@@ -34,7 +34,11 @@ const socketManager = require("./server-socket");
 // Server configuration below
 // TODO change connection URL after setting up your team database
 <<<<<<< HEAD
+<<<<<<< HEAD
 const mongoConnectionURL = "mongodb+srv://miho_koda:Huangmeihui1.@cluster0.l9ybz.mongodb.net/test?retryWrites=true&w=majority";
+=======
+const mongoConnectionURL = "FILL ME IN";
+>>>>>>> parent of 95cdd8f (Skeleton code)
 =======
 const mongoConnectionURL = "FILL ME IN";
 >>>>>>> parent of 95cdd8f (Skeleton code)
