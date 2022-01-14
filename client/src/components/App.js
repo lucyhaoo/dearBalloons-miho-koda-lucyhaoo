@@ -3,9 +3,9 @@ import { Router } from "@reach/router";
 import NotFound from "./pages/NotFound.js";
 import Skeleton from "./pages/Skeleton.js";
 import Map from "./pages/Map.js";
+import SearchBar from "./pages/SearchBar.js";
 import "../utilities.css";
 import { socket } from "../client-socket.js";
-
 import { get, post } from "../utilities";
 
 
@@ -45,6 +45,7 @@ const App = () => {
       </div>
       
       <div>
+        <SearchBar />
         <Map />
       </div>
     </>
