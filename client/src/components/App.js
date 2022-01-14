@@ -2,9 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Router } from "@reach/router";
 import NotFound from "./pages/NotFound.js";
 import Skeleton from "./pages/Skeleton.js";
-
+import HomePage from "./pages/HomePage.js";
 import "../utilities.css";
-
 import { socket } from "../client-socket.js";
 
 import { get, post } from "../utilities";
@@ -44,6 +43,9 @@ const App = () => {
         <Skeleton path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
         <NotFound default />
       </Router>
+      <div className="main-page">
+        <HomePage />
+      </div>
     </>
   );
 };
