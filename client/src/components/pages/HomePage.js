@@ -1,18 +1,11 @@
-import React, { useState, useEffect } from "react";
-import TextEditor from "./TextEditor.js";
-import {Route, Link} from "react-router-dom";
-
+import React from "react";
 
 const HomePage = () => {
-    return (
-        <div>
-            <h1>this is HomePage</h1> 
-            
-            <TextEditor />
-        </div>
+  return (
+    <div>
+      <h1>THIS IS HOME PAGE</h1>
+    </div>
+  );
+};
 
-    );
-  };
-  
-  export default HomePage;
-  
+export default HomePage;

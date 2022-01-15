@@ -3,9 +3,14 @@ import { Router } from "@reach/router";
 import NotFound from "./pages/NotFound.js";
 import Skeleton from "./pages/Skeleton.js";
 import HomePage from "./pages/HomePage.js";
+import TextEditor from "./pages/TextEditor.js";
+import Friend from "./pages/Friend.js";
+import Random from "./pages/Random.js";
+import FutureSelf from "./pages/FutureSelf";
 import "../utilities.css";
 import { socket } from "../client-socket.js";
-
+import {Route, Link} from "react-router-dom";
+import NavBar from "./pages/NavBar.js";
 import { get, post } from "../utilities";
 
 /**
@@ -44,7 +49,12 @@ const App = () => {
         <NotFound default />
       </Router>
       <div className="main-page">
-        <HomePage />
+        <NavBar />
+        <Route exact path="/HomePage" component={HomePage} />
+        <Route exact path="/TextEditor" component={TextEditor} />
+        <Route exact path="/Friend" component={Friend} />
+        <Route exact path="/FutureSelf" component={FutureSelf} />
+        <Route exact path="/Random" component={Random} />
       </div>
     </>
   );
