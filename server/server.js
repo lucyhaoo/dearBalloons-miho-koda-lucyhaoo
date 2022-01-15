@@ -13,6 +13,12 @@
 | - Actually starts the webserver
 */
 
+require('dotenv').config();
+const port = process.env.PORT || 3000;
+const personalEmail = process.env.PERSONAL_EMAIL;
+const emailPassword = process.env.EMAIL_PASSWORD;
+const friendEmail = process.env.FRIEND_EMAIL;
+
 // validator runs some basic checks to make sure you've set everything up correctly
 // this is a tool provided by staff, so you don't need to worry about it
 const validator = require("./validator");

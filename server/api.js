@@ -38,6 +38,21 @@ router.post("/initsocket", (req, res) => {
   res.send({});
 });
 
+router.post("/sendEmail", (req, res) => {
+  // sending email
+  const recipient = req.body.recipientEmail;
+  const content = req.body.contentEmail;
+  let sendMsg = {
+    from: personalEmail,
+    to: recipient,
+    subject: "",// TODO
+    text: content,
+  }
+
+  // mongo
+  const newEmail = new Email({})
+});
+
 // |------------------------------|
 // | write your API methods below!|
 // |------------------------------|
