@@ -6,6 +6,7 @@ function NavBar(){
         <ul>
             <li><Link to="/HomePage">HomePage</Link></li>
             <li><Link to="/TextEditor">TextEditor</Link></li>
+            <li><Link to="/PickUp">PickUp</Link></li>
         </ul>
     );
 };

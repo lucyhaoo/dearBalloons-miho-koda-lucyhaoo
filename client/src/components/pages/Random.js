@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const Random = () => {
+const Random = (props) => {
     const [data, setData] = useState("");
     const getData = (val) => {
         setData(val.target.value);

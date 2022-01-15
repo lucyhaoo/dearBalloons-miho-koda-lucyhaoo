@@ -6,7 +6,8 @@ import HomePage from "./pages/HomePage.js";
 import TextEditor from "./pages/TextEditor.js";
 import Friend from "./pages/Friend.js";
 import Random from "./pages/Random.js";
-import FutureSelf from "./pages/FutureSelf";
+import FutureSelf from "./pages/FutureSelf.js";
+import PickUp from "./pages/PickUp.js";
 import "../utilities.css";
 import { socket } from "../client-socket.js";
 import {Route, Link} from "react-router-dom";
@@ -55,6 +56,7 @@ const App = () => {
         <Route exact path="/Friend" component={Friend} />
         <Route exact path="/FutureSelf" component={FutureSelf} />
         <Route exact path="/Random" component={Random} />
+        <Route exact path="/PickUp" component={PickUp} />
       </div>
     </>
   );
