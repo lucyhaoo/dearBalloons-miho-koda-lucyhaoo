@@ -25,12 +25,12 @@ const FutureSelf = (props) => {
     <div>
       <h1>SEND TO FUTURE SELF</h1>
     
-
+      <h1>YOUR TEXT: </h1>
+      <div dangerouslySetInnerHTML={{__html: props.content}} />
       <h1>YOUR EMAIL: </h1>
       <input value = {data} type = "text" onChange = {getData}/>
       <h1>DATE: </h1>
       <input type="text" />
-      {props.content}
 
 
     </div>

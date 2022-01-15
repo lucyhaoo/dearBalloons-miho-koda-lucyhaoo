@@ -35,12 +35,12 @@ const TextEditor = () => {
   const button2 = () => {
     console.log("button2 is running")
     console.log(draftToHtml(convertToRaw(editorState.getCurrentContent())));
-    setLinkPage("FutureSelf");
+    setLinkPage("Friend");
   };
   const button3 = () => {
     console.log("button3 is running")
     console.log(draftToHtml(convertToRaw(editorState.getCurrentContent())));
-    setLinkPage("FutureSelf");
+    setLinkPage("Random");
   };
   
   
