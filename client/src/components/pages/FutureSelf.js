@@ -59,24 +59,6 @@ const FutureSelf = (props) => {
   
 };
 
-  /** 
- * Proptypes
- * @param {string} sender_gamil 
- * @param {string} content 
- * @param {string} recipient_email 
- */
-  const NewMessage = (props) => {
-    const addMessage = (value) => {
-      const body = { sender_mail: gmail, reciepient_mail: gmail, content: props.content, date: date};
-      post("/api/message", body).then((message) => {
-        // display this comment on the screen
-        props.addNewMessage(message);
-      });
-    };
-  
-    return <NewPostInput defaultText="New Message" onSubmit={addMessage} />;
-  };
-
 
 export default FutureSelf;
 

@@ -53,6 +53,7 @@ const App = () => {
         {userId && (
           <NavBar />
         )}
+        <NavBar />
         <Route exact path="/HomePage" component={HomePage} />
         <Route exact path="/TextEditor" component={TextEditor} />
         <Route exact path="/Friend" component={Friend} />
