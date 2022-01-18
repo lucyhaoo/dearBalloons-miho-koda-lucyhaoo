@@ -14,6 +14,7 @@
 */
 
 require('dotenv').config();
+
 const port = process.env.PORT || 3000;
 const personalEmail = process.env.PERSONAL_EMAIL;
 const emailPassword = process.env.EMAIL_PASSWORD;
@@ -21,29 +22,28 @@ const friendEmail = process.env.FRIEND_EMAIL;
 
 // validator runs some basic checks to make sure you've set everything up correctly
 // this is a tool provided by staff, so you don't need to worry about it
-const validator = require("./validator");
 validator.checkSetup();
 
-//import libraries needed for the webserver to work!
-const http = require("http");
-const express = require("express"); // backend framework for our node server.
-const session = require("express-session"); // library that stores info about each connected user
-const mongoose = require("mongoose"); // library to connect to MongoDB
-const path = require("path"); // provide utilities for working with file and directory paths
+// import libraries needed for the webserver to work!
+const http = require('http');
+const express = require('express'); // backend framework for our node server.
+const session = require('express-session'); // library that stores info about each connected user
+const mongoose = require('mongoose'); // library to connect to MongoDB
+const path = require('path'); // provide utilities for working with file and directory paths
+const validator = require('./validator');
 
-const api = require("./api.js");
-const auth = require("./auth");
+const api = require('./api.js');
+const auth = require('./auth');
 
 // socket stuff
-const socketManager = require("./server-socket");
+const socketManager = require('./server-socket');
 
 // Server configuration below
 // TODO change connection URL after setting up your team database
-const mongoConnectionURL = "mongodb+srv://dearballons:<password>@cluster0.f0bxj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-
+const mongoConnectionURL = 'mongodb+srv://dearballons:<password>@cluster0.f0bxj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 
 // TODO change database name to the name you chose
-const databaseName = "test";
+const databaseName = 'test';
 
 // connect to mongodb
 mongoose
@@ -52,7 +52,7 @@ mongoose
     useUnifiedTopology: true,
     dbName: databaseName,
   })
-  .then(() => console.log("Connected to MongoDB"))
+  .then(() => console.log('Connected to MongoDB'))
   .catch((err) => console.log(`Error connecting to MongoDB: ${err}`));
 
 // create a new express server
@@ -65,25 +65,24 @@ app.use(express.json());
 // set up a session, which will persist login data across requests
 app.use(
   session({
-    secret: "session-secret",
+    secret: 'session-secret',
     resave: false,
     saveUninitialized: false,
-  })
+  }),
 );
 
 // connect user-defined routes
-app.use("/api", api);
+app.use('/api', api);
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(reactPath, "index.html"));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(reactPath, 'index.html'));
 });
- 
+
 // this checks if the user is logged in, and populates "req.user"
 app.use(auth.populateCurrentUser);
 
-
 // load the compiled react files, which will serve /index.html and /bundle.js
-const reactPath = path.resolve(__dirname, "..", "client", "dist");
+const reactPath = path.resolve(__dirname, '..', 'client', 'dist');
 app.use(express.static(reactPath));
 
 // any server errors cause this function to run
@@ -91,13 +90,13 @@ app.use((err, req, res, next) => {
   const status = err.status || 500;
   if (status === 500) {
     // 500 means Internal Server Error
-    console.log("The server errored when processing a request!");
+    console.log('The server errored when processing a request!');
     console.log(err);
   }
 
   res.status(status);
   res.send({
-    status: status,
+    status,
     message: err.message,
   });
 });

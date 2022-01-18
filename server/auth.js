@@ -1,10 +1,10 @@
-const { OAuth2Client } = require("google-auth-library");
-const User = require("./models/user");
-const socketManager = require("./server-socket");
+const { OAuth2Client } = require('google-auth-library');
+const User = require('./models/user');
+const socketManager = require('./server-socket');
 
 // create a new OAuth client used to verify google sign-in
 //    TODO: replace with your own CLIENT_ID
-const CLIENT_ID = "104820923294-3q96mdhnj7gs3l9uhckteac8jgouj27q.apps.googleusercontent.com";
+const CLIENT_ID = '104820923294-3q96mdhnj7gs3l9uhckteac8jgouj27q.apps.googleusercontent.com';
 const client = new OAuth2Client(CLIENT_ID);
 
 // accepts a login token from the frontend, and verifies that it's legit
@@ -26,7 +26,7 @@ function getOrCreateUser(user) {
     const newUser = new User({
       name: user.name,
       googleid: user.sub,
-      email: user.email
+      email: user.email,
     });
 
     return newUser.save();
@@ -60,7 +60,7 @@ function populateCurrentUser(req, res, next) {
 
 function ensureLoggedIn(req, res, next) {
   if (!req.user) {
-    return res.status(401).send({ err: "not logged in" });
+    return res.status(401).send({ err: 'not logged in' });
   }
 
   next();

@@ -1,13 +1,13 @@
-import React, { Component } from "react";
-import GoogleLogin, { GoogleLogout } from "react-google-login";
+import React, { Component } from 'react';
+import GoogleLogin, { GoogleLogout } from 'react-google-login';
 
-import "../../utilities.css";
-import "./Skeleton.css";
+import '../../utilities.css';
+import './Skeleton.css';
 
-//TODO: REPLACE WITH YOUR OWN CLIENT_ID
-const GOOGLE_CLIENT_ID = "104820923294-3q96mdhnj7gs3l9uhckteac8jgouj27q.apps.googleusercontent.com";
+// TODO: REPLACE WITH YOUR OWN CLIENT_ID
+const GOOGLE_CLIENT_ID = '104820923294-3q96mdhnj7gs3l9uhckteac8jgouj27q.apps.googleusercontent.com';
 
-const Skeleton = ({ userId, handleLogin, handleLogout }) => {
+function Skeleton({ userId, handleLogin, handleLogout }) {
   return (
     <>
       {userId ? (
@@ -27,6 +27,6 @@ const Skeleton = ({ userId, handleLogin, handleLogout }) => {
       )}
     </>
   );
-};
+}
 
 export default Skeleton;
