@@ -54,8 +54,10 @@ const App = () => {
       </Router>
       <div className="main-page">
         {userId && (
-          <NavBar />
-        )}  
+          <h1>THIS IS WORKING WHEN LOGGED IN????</h1>
+        )} 
+        <h1>IS THIS WORKING????</h1>
+        <NavBar />
         <Route exact path="/HomePage" component={HomePage} />
         <Route exact path="/TextEditor" component={TextEditor} />
         <Route exact path="/Friend" component={Friend} />
