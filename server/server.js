@@ -68,6 +68,10 @@ app.use(
     saveUninitialized: false,
   })
 );
+
+// connect user-defined routes
+app.use("/api", api);
+
 app.get("*", (req, res) => {
   res.sendFile(path.join(reactPath, "index.html"));
 });
@@ -75,8 +79,6 @@ app.get("*", (req, res) => {
 // this checks if the user is logged in, and populates "req.user"
 app.use(auth.populateCurrentUser);
 
-// connect user-defined routes
-app.use("/api", api);
 
 // load the compiled react files, which will serve /index.html and /bundle.js
 const reactPath = path.resolve(__dirname, "..", "client", "dist");

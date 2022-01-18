@@ -78,15 +78,15 @@ router.post("/sendEmail", (req, res) => {
 // |------------------------------|
 
 // anything else falls to this "not found" case
-router.all("*", (req, res) => {
-  console.log(`API route not found: ${req.method} ${req.url}`);
-  res.status(404).send({ msg: "API route not found" });
-});
+// router.all("*", (req, res) => {
+//   console.log(`API route not found: ${req.method} ${req.url}`);
+//   res.status(404).send({ msg: "API route not found" });
+// });
 
 // for all other routes, render index.html and let react router handle it
 
-router.get("/api/test", (req, res) => {
-  res.send({ message: "is this working ahhh" });
+router.get("/test", (req, res) => {
+  res.status(200).send({ message: "is this working ahhh" });
 });
 
 router.get("/stories", (req, res) => {
