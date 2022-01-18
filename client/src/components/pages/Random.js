@@ -18,7 +18,11 @@ const Random = (props) => {
     }, []);
 
       
-
+    useEffect(() => {
+      get("/api/getmessage").then((message) => {
+        console.log(message)
+      });
+    }, []);
 
     const [value, setValue] = useState("");
     // called when the user hits "Submit" for a new post
@@ -59,7 +63,6 @@ const Random = (props) => {
  * @param {string} recipient_email 
  * @param {string} content 
  * @param {string} date 
-
  */
    const NewMessage = (props) => {
     const addMessage = (value) => {
@@ -77,4 +80,3 @@ const Random = (props) => {
 
 
 export default Random;
-
