@@ -24,24 +24,24 @@ const TextEditor = () => {
   };
 
   useEffect(() => {
-    console.log(getValue());
+    //console.log(getValue());
   }, [editorState]);
   
   <TextEditor content={editorState} />
 
   const button1 = () => {
-    console.log("button1 is running")
-    console.log(draftToHtml(convertToRaw(editorState.getCurrentContent())));
+    //console.log("button1 is running")
+    //console.log(draftToHtml(convertToRaw(editorState.getCurrentContent())));
     setLinkPage("FutureSelf");
   };
   const button2 = () => {
-    console.log("button2 is running")
-    console.log(draftToHtml(convertToRaw(editorState.getCurrentContent())));
+    //console.log("button2 is running")
+    //console.log(draftToHtml(convertToRaw(editorState.getCurrentContent())));
     setLinkPage("Friend");
   };
   const button3 = () => {
-    console.log("button3 is running")
-    console.log(draftToHtml(convertToRaw(editorState.getCurrentContent())));
+    //console.log("button3 is running")
+    //console.log(draftToHtml(convertToRaw(editorState.getCurrentContent())));
     setLinkPage("Random");
   };
   

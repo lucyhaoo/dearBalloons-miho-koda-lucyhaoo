@@ -51,26 +51,28 @@ router.post("/sendEmail", (req, res) => {
 
   // mongo
   const newEmail = new Email({})
-  const data = {
-    stories: [
-      {
-        _id: 0,
-        creator_name: "Shannen Wu",
-        content: "I love corgis!"
-      }
-    ],
-    comments: [
-      {
-        _id: 0,
-        creator_name: "Jessica Tang",
-        parent: 0,
-        content: "Wow! Me Too!",
-      }
-    ],
-  };
+
 
 
 });
+
+const data = {
+  stories: [
+    {
+      _id: 0,
+      creator_name: "Shannen Wu",
+      content: "I love corgis!"
+    }
+  ],
+  comments: [
+    {
+      _id: 0,
+      creator_name: "Jessica Tang",
+      parent: 0,
+      content: "Wow! Me Too!",
+    }
+  ],
+};
 
 
 // |------------------------------|
@@ -78,18 +80,19 @@ router.post("/sendEmail", (req, res) => {
 // |------------------------------|
 
 // anything else falls to this "not found" case
-// router.all("*", (req, res) => {
-//   console.log(`API route not found: ${req.method} ${req.url}`);
-//   res.status(404).send({ msg: "API route not found" });
-// });
-
+/*router.all("*", (req, res) => {
+   console.log(`API route not found: ${req.method} ${req.url}`);
+   res.status(404).send({ msg: "API route not found" });
+ });*/
+ 
 // for all other routes, render index.html and let react router handle it
 
 router.get("/test", (req, res) => {
   res.status(200).send({ message: "is this working ahhh" });
 });
 
-router.get("/stories", (req, res) => {
+
+router.get("/messages", (req, res) => {
   // send back all of the stories!
   res.send(data.stories);
 });
@@ -99,6 +102,17 @@ router.get("/comment", (req, res) => {
     (comment) => comment.parent == req.query.parent);
   res.send(filteredComments)
 });
- 
+
+router.post("/message", (req, res) => {
+  const newMessage = {
+    sender_mail: req.body.sender_mail, 
+    reciepient_mail: req.body.reciepient_mail,
+    content: req.body.content, 
+    data: req.body.date
+  };
+  
+  data.stories.push(newStory);
+  res.send(newStory);
+});
 
 module.exports = router;

@@ -24,7 +24,13 @@ const FutureSelf = (props) => {
       });
     }, []);
 
-    //      {props.content}
+    const [value, setValue] = useState("");
+    // called when the user hits "Submit" for a new post
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      props.onSubmit && props.onSubmit(value);
+      setValue("");
+    };
 
   
     return (
@@ -37,11 +43,40 @@ const FutureSelf = (props) => {
       <input value = {gmail} type = "text" onChange = {getGmail}/>
       <h1>DATE: </h1>
       <input value = {date} type="text" onChange={getDate} />
-
+      
+      
+      <button
+        type="submit"
+        value="Submit"
+        onClick={handleSubmit}
+      >
+        Submit
+      </button>
 
     </div>
   );
+
+  
 };
+
+  /** 
+ * Proptypes
+ * @param {string} sender_gamil 
+ * @param {string} content 
+ * @param {string} recipient_email 
+ */
+  const NewMessage = (props) => {
+    const addMessage = (value) => {
+      const body = { sender_mail: gmail, reciepient_mail: gmail, content: props.content, date: date};
+      post("/api/message", body).then((message) => {
+        // display this comment on the screen
+        props.addNewMessage(message);
+      });
+    };
+  
+    return <NewPostInput defaultText="New Message" onSubmit={addMessage} />;
+  };
+
 
 export default FutureSelf;
 
