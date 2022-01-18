@@ -20,8 +20,12 @@ const Random = (props) => {
     <div>
       <h1>Send to a Random Stranger</h1>
 
+      <h1>YOUR TEXT: </h1>
+      <div dangerouslySetInnerHTML={{__html: props.content}} />
+
       <h1>YOUR EMAIL: </h1>
       <input value = {data} type = "text" onChange = {getData}/>
+
     </div>
   );
 };
