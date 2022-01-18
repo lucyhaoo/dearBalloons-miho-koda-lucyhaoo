@@ -18,11 +18,7 @@ const Random = (props) => {
     }, []);
 
       
-    useEffect(() => {
-      get("/api/getmessage").then((message) => {
-        console.log(message)
-      });
-    }, []);
+
 
     const [value, setValue] = useState("");
     // called when the user hits "Submit" for a new post
