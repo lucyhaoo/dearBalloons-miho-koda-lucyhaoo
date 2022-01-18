@@ -53,6 +53,7 @@ router.post("/sendEmail", (req, res) => {
   const newEmail = new Email({})
 });
 
+
 // |------------------------------|
 // | write your API methods below!|
 // |------------------------------|
@@ -62,5 +63,12 @@ router.all("*", (req, res) => {
   console.log(`API route not found: ${req.method} ${req.url}`);
   res.status(404).send({ msg: "API route not found" });
 });
+
+// for all other routes, render index.html and let react router handle it
+router.get("/test", (req, res) => {
+  res.sendFile(path.join(reactPath, "index.html"));
+  res.send({message: "is it working"});
+});
+ 
 
 module.exports = router;

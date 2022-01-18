@@ -14,7 +14,7 @@
 */
 
 require('dotenv').config();
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 3000;
 const personalEmail = process.env.PERSONAL_EMAIL;
 const emailPassword = process.env.EMAIL_PASSWORD;
 const friendEmail = process.env.FRIEND_EMAIL;
@@ -31,7 +31,7 @@ const session = require("express-session"); // library that stores info about ea
 const mongoose = require("mongoose"); // library to connect to MongoDB
 const path = require("path"); // provide utilities for working with file and directory paths
 
-const api = require("./api");
+const api = require("./api.js");
 const auth = require("./auth");
 
 // socket stuff
@@ -79,11 +79,6 @@ app.use("/api", api);
 const reactPath = path.resolve(__dirname, "..", "client", "dist");
 app.use(express.static(reactPath));
 
-// for all other routes, render index.html and let react router handle it
-app.get("*", (req, res) => {
-  res.sendFile(path.join(reactPath, "index.html"));
-});
-
 // any server errors cause this function to run
 app.use((err, req, res, next) => {
   const status = err.status || 500;
@@ -101,7 +96,6 @@ app.use((err, req, res, next) => {
 });
 
 // hardcode port to 3000 for now
-const port = 3000;
 const server = http.Server(app);
 socketManager.init(server);
 

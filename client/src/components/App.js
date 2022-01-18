@@ -47,24 +47,19 @@ const App = () => {
     <>
       <Router>
         <Skeleton path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
-        {/*<FutureSelf path="/FutureSelf/:content" />
-        <TextEditor path="/TextEditor"/>*/}
         <NotFound default />
-
       </Router>
       <div className="main-page">
         {userId && (
-          <h1>THIS IS WORKING WHEN LOGGED IN????</h1>
-        )} 
-        <h1>IS THIS WORKING????</h1>
-        <NavBar />
+          <NavBar />
+        )}
         <Route exact path="/HomePage" component={HomePage} />
         <Route exact path="/TextEditor" component={TextEditor} />
         <Route exact path="/Friend" component={Friend} />
         <Route exact path="/FutureSelf" component={FutureSelf} />
         <Route exact path="/Random" component={Random} />
         <Route exact path="/PickUp" component={PickUp} />
-      </div> 
+      </div>
     </>
   );
 };
