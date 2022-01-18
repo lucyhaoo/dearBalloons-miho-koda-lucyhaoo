@@ -68,7 +68,10 @@ app.use(
     saveUninitialized: false,
   })
 );
-
+app.get("*", (req, res) => {
+  res.sendFile(path.join(reactPath, "index.html"));
+});
+ 
 // this checks if the user is logged in, and populates "req.user"
 app.use(auth.populateCurrentUser);
 

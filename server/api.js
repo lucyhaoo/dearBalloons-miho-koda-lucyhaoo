@@ -51,6 +51,25 @@ router.post("/sendEmail", (req, res) => {
 
   // mongo
   const newEmail = new Email({})
+  const data = {
+    stories: [
+      {
+        _id: 0,
+        creator_name: "Shannen Wu",
+        content: "I love corgis!"
+      }
+    ],
+    comments: [
+      {
+        _id: 0,
+        creator_name: "Jessica Tang",
+        parent: 0,
+        content: "Wow! Me Too!",
+      }
+    ],
+  };
+
+
 });
 
 
@@ -65,9 +84,20 @@ router.all("*", (req, res) => {
 });
 
 // for all other routes, render index.html and let react router handle it
-router.get("/test", (req, res) => {
-  res.sendFile(path.join(reactPath, "index.html"));
-  res.send({message: "is it working"});
+
+router.get("/api/test", (req, res) => {
+  res.send({ message: "is this working ahhh" });
+});
+
+router.get("/stories", (req, res) => {
+  // send back all of the stories!
+  res.send(data.stories);
+});
+
+router.get("/comment", (req, res) => {
+  const filteredComments = data.comments.filter(
+    (comment) => comment.parent == req.query.parent);
+  res.send(filteredComments)
 });
  
 
