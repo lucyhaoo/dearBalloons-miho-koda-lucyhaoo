@@ -19,11 +19,6 @@ const Friend = (props) => {
       setRecmail(val.target.value);
       console.warn(val.target.value);
     }
-
-
-      useEffect(() => {
-        // console.log(props.content)
-      })
   
     useEffect(() => {
       get("/api/whoami").then((user) => {
@@ -33,6 +28,14 @@ const Friend = (props) => {
         }
       });
     }, []);
+
+    const [value, setValue] = useState("");
+    // called when the user hits "Submit" for a new post
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      props.onSubmit && props.onSubmit(value);
+      setValue("");
+    };
 
     return (
     <div>
@@ -45,6 +48,14 @@ const Friend = (props) => {
       <input value = {recmail} type="text" onChange = {getRecmail}/>
       <h1>DATE: </h1>
       <input value = {date} type="text" onChange={getDate} />
+
+      <button
+        type="submit"
+        value="Submit"
+        onClick={handleSubmit}
+      >
+        Submit
+      </button>
     </div>
   );
 };

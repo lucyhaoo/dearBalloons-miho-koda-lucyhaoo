@@ -17,12 +17,6 @@ const Random = (props) => {
       });
     }, []);
 
-      
-    useEffect(() => {
-      get("/api/getmessage").then((message) => {
-        console.log(message)
-      });
-    }, []);
 
     const [value, setValue] = useState("");
     // called when the user hits "Submit" for a new post
@@ -32,6 +26,24 @@ const Random = (props) => {
       setValue("");
     };
 
+    /** 
+     * Proptypes
+     * @param {string} sender_mail 
+     * @param {string} recipient_mail 
+     * @param {string} content 
+     * @param {string} date 
+     */
+      const NewMessage = (props) => {
+        const addMessage = (value) => {
+          const body = { sender_mail: gmail, recipient_mail: gmail, content: props.content, date: "2"};
+          post("/api/postmessage", body).then((message) => {
+            // display this comment on the screen
+            props.addNewMessage(message);
+          });
+        };
+      
+        return <NewMessageInput defaultText="New Message" onSubmit={addMessage} />;
+      };
 
 
     return (
@@ -57,26 +69,11 @@ const Random = (props) => {
 
 }
 
-  /** 
- * Proptypes
- * @param {string} sender_gamil 
- * @param {string} recipient_email 
- * @param {string} content 
- * @param {string} date 
- */
-   const NewMessage = (props) => {
-    const addMessage = (value) => {
-      const body = { sender_mail: gmail, reciepient_mail: gmail, content: props.content, date: "0"};
-      post("/api/postmessage", body).then((message) => {
-        // display this comment on the screen
-        props.addNewMessage(message);
-      });
-    };
-  
-    return <NewPostInput defaultText="New Message" onSubmit={addMessage} />;
-  };
+
 
 
 
 
 export default Random;
+
+
