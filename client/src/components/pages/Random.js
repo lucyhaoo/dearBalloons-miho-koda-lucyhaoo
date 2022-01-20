@@ -17,15 +17,6 @@ const Random = (props) => {
       });
     }, []);
 
-
-    const [value, setValue] = useState("");
-    // called when the user hits "Submit" for a new post
-    const handleSubmit = (event) => {
-      event.preventDefault();
-      props.onSubmit && props.onSubmit(value);
-      setValue("");
-    };
-
     /** 
      * Proptypes
      * @param {string} sender_mail 
@@ -33,17 +24,15 @@ const Random = (props) => {
      * @param {string} content 
      * @param {string} date 
      */
-      const NewMessage = (props) => {
-        const addMessage = (value) => {
-          const body = { sender_mail: gmail, recipient_mail: gmail, content: props.content, date: "2"};
-          post("/api/postmessage", body).then((message) => {
-            // display this comment on the screen
-            props.addNewMessage(message);
-          });
-        };
       
-        return <NewMessageInput defaultText="New Message" onSubmit={addMessage} />;
-      };
+        const addMessage = (value) => {
+          console.log("work");
+          const body = { sender_mail: gmail, recipient_mail: gmail, content: props.content, date: "2"};
+          post("/api/postmessage", body);
+          
+        };
+
+    
 
 
     return (
@@ -54,15 +43,13 @@ const Random = (props) => {
         <h1>YOUR EMAIL: </h1>
         <input value = {gmail} type = "text" onChange = {getGmail}/>
       
-        <button
-        type="submit"
-        value="Submit"
-        onClick={handleSubmit}
-      >
-        Submit
+
+      <button onClick={addMessage}>
+        submit
       </button>
 
       </div>
+      
 
       
     );

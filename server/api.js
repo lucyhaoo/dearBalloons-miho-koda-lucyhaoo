@@ -40,6 +40,7 @@ router.post("/initsocket", (req, res) => {
 
 router.post("/sendEmail", (req, res) => {
   // sending email
+  console.log(req.body.recipient_mail);
 
   const transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -53,14 +54,14 @@ router.post("/sendEmail", (req, res) => {
     }
   });
 
-  const recipient = req.body.recipientEmail || "mihokoda3@gmail.com";
-  const content = req.body.contentEmail || "test message";
+  const recipient = req.body.recipient_mail;
+  const content = req.body.content;
 
   let sendMsg = {
     from: process.env.PERSONAL_EMAIL,
     to: recipient,
     subject: 'You got a new message from Dear Balloons!',
-    text: content,
+    html: content,
   }  
 
   transporter.sendMail(sendMsg, (error, info) => {
@@ -109,9 +110,15 @@ const Message = require("./models/message");
 
 
 router.post("/postmessage", (req, res) => {
-  let testMessage = new Message ({sender_mail: req.body.sender_mail, recipient_mail: req.body.reciepient_mail, content: req.body.content, date: req.body.date});
+  console.log("test");
+  let testMessage = new Message ({sender_mail: req.body.sender_mail, recipient_mail: req.body.recipient_mail, content: req.body.content, date: req.body.date});
   testMessage.save()
             .then((student) => console.log("Added ${student.sender_mail}"));
+});
+
+router.get("/getmessage", (req, res) =>{
+  Message.findOneAndDelete({}).then((messages) => res.send(messages));
+
 });
 
 
