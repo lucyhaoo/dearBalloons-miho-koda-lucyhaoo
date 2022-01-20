@@ -34,6 +34,12 @@ const Friend = (props) => {
       });
     }, []);
 
+    const sendMessage = (value) => {
+      const body = { sender_mail: gmail, recipient_mail: gmail, content: props.content, date: "2"};
+      post("/api/sendEmail", body)
+    }
+
+
     return (
     <div>
       <h1>Send to friend</h1>
@@ -45,6 +51,14 @@ const Friend = (props) => {
       <input value = {recmail} type="text" onChange = {getRecmail}/>
       <h1>DATE: </h1>
       <input value = {date} type="text" onChange={getDate} />
+
+      <button
+        type="submit"
+        value="Submit"
+        onClick={sendMessage}
+      >
+        Submit
+      </button>
     </div>
   );
 };

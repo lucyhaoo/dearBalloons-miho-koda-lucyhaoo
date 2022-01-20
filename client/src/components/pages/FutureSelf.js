@@ -24,13 +24,10 @@ const FutureSelf = (props) => {
       });
     }, []);
 
-    const [value, setValue] = useState("");
-    // called when the user hits "Submit" for a new post
-    const handleSubmit = (event) => {
-      event.preventDefault();
-      props.onSubmit && props.onSubmit(value);
-      setValue("");
-    };
+    const sendMessage = (value) => {
+      const body = { sender_mail: gmail, recipient_mail: gmail, content: props.content, date: "2"};
+      post("/api/sendEmail", body)
+    }
 
   
     return (
@@ -48,7 +45,7 @@ const FutureSelf = (props) => {
       <button
         type="submit"
         value="Submit"
-        onClick={handleSubmit}
+        onClick={sendMessage}
       >
         Submit
       </button>
@@ -59,7 +56,7 @@ const FutureSelf = (props) => {
   
 };
 
-  /** 
+/** 
  * Proptypes
  * @param {string} sender_gamil 
  * @param {string} content 

@@ -58,10 +58,13 @@ function App() {
         <Route exact path="/Friend" component={Friend} />
         <Route exact path="/FutureSelf" component={FutureSelf} />
         <Route exact path="/Random" component={Random} />
-        <Route exact path="/PickUp" component={PickUp} />
+        <Route exact path="/PickUp" component={PickUp} /> 
+        
       </div>
+
     </>
   );
 }
+
 
 export default App;
