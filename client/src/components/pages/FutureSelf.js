@@ -29,8 +29,15 @@ const FutureSelf = (props) => {
         content: props.content, 
         date: startDate
       };
-      post("/api/sendEmail", body)
+      post("/api/sendEmail", body).then((ayo) =>{
+        loadPage();
+      });
     }
+    const loadPage = () =>{
+      document.location.href = "test.js";
+
+     }
+
 
 
     return (

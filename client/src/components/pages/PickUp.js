@@ -6,15 +6,15 @@ const PickUp = () => {
 
   const getMessage = (value) => {
     get("/api/getmessage").then((newbody) => {
-      console.log(newbody.sender_mail);
+      document.getElementById("like").innerHTML = newbody.content;
     });
   };
 
 
+
   return (
-    <div>
-      <h1>Pick up a message from anyone</h1>
-      <button onClick={getMessage}>test</button>
+    <div id = "like">
+      <button onClick={getMessage}>Click Here to Pick Up a Message from a Stranger</button>
     </div>
   );
 };
