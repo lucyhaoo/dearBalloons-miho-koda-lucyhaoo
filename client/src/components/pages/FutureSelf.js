@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { get, post } from "../../utilities";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 
 const FutureSelf = (props) => {
@@ -9,11 +11,7 @@ const FutureSelf = (props) => {
         console.warn(val.target.value);
       }
 
-    const [date, setDate] = useState("");
-    const getDate = (val) => {
-      setDate(val.target.value);
-      console.warn(val.target.value);
-    }
+    const [startDate, setStartDate] = useState(new Date());
 
     useEffect(() => {
       get("/api/whoami").then((user) => {
@@ -25,23 +23,29 @@ const FutureSelf = (props) => {
     }, []);
 
     const sendMessage = (value) => {
-      const body = { sender_mail: gmail, recipient_mail: gmail, content: props.content, date: "2"};
+      const body = { 
+        sender_mail: gmail, 
+        recipient_mail: gmail, 
+        content: props.content, 
+        date: startDate
+      };
       post("/api/sendEmail", body)
     }
 
-  
+
     return (
     <div>
       <h1>SEND TO FUTURE SELF</h1>
+
       <h1>YOUR TEXT: </h1>
       <div dangerouslySetInnerHTML={{__html: props.content}} />
 
       <h1>YOUR EMAIL: </h1>
       <input value = {gmail} type = "text" onChange = {getGmail}/>
+      
       <h1>DATE: </h1>
-      <input value = {date} type="text" onChange={getDate} />
-      
-      
+      <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
+
       <button
         type="submit"
         value="Submit"
@@ -49,11 +53,8 @@ const FutureSelf = (props) => {
       >
         Submit
       </button>
-
     </div>
   );
-
-  
 };
 
 export default FutureSelf;

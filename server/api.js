@@ -15,6 +15,8 @@ const nodemailer = require('nodemailer');
 // import authentication library
 const auth = require("./auth");
 
+const cron = require('cron');
+
 // api endpoints: all these paths will be prefixed with "/api/"
 const router = express.Router();
 
@@ -38,6 +40,7 @@ router.post("/initsocket", (req, res) => {
   res.send({});
 });
 
+
 router.post("/sendEmail", (req, res) => {
   // sending email
   console.log(req.body.recipient_mail);
@@ -56,20 +59,23 @@ router.post("/sendEmail", (req, res) => {
 
   const recipient = req.body.recipient_mail;
   const content = req.body.content;
+  const date = req.body.date;
 
-  let sendMsg = {
+  const sendMsg = {
     from: process.env.PERSONAL_EMAIL,
     to: recipient,
     subject: 'You got a new message from Dear Balloons!',
     html: content,
   }  
 
-  transporter.sendMail(sendMsg, (error, info) => {
-    if (error) {
-      console.log(error);
-    } else {
-      console.log('Email sent: ' + info.response);
-    }
+  const job = new cron.CronJob(date, () => {
+    transporter.sendMail(sendMsg, (error, info) => {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email sent: ' + info.response);
+      }
+    });
   });
 
   res.status(200).send({ message: "Successfully sent email!" });
@@ -111,7 +117,12 @@ const Message = require("./models/message");
 
 router.post("/postmessage", (req, res) => {
   console.log("test");
-  let testMessage = new Message ({sender_mail: req.body.sender_mail, recipient_mail: req.body.recipient_mail, content: req.body.content, date: req.body.date});
+  let testMessage = new Message ({
+    sender_mail: req.body.sender_mail, 
+    recipient_mail: req.body.recipient_mail, 
+    content: req.body.content, 
+    date: req.body.date
+  });
   testMessage.save()
             .then((student) => console.log("Added ${student.sender_mail}"));
 });
