@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Router } from '@reach/router';
-import { Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import NotFound from './pages/NotFound.js';
 import Skeleton from './pages/Skeleton.js';
 import HomePage from './pages/HomePage.js';

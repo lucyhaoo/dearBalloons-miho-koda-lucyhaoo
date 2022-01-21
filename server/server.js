@@ -34,12 +34,13 @@ const path = require("path"); // provide utilities for working with file and dir
 const api = require("./api.js");
 const auth = require("./auth");
 
+
 // socket stuff
 const socketManager = require("./server-socket");
 
 // Server configuration below
 // TODO change connection URL after setting up your team database
-const mongoConnectionURL = process.env.MONGO_SRV;
+const mongoConnectionURL = process.env.ATLAS_SRV;
 
 
 // TODO change database name to the name you chose
@@ -103,6 +104,7 @@ app.use((err, req, res, next) => {
     message: err.message,
   });
 });
+
 
 // hardcode port to 3000 for now
 const server = http.Server(app);
