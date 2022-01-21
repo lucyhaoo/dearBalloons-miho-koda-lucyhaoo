@@ -68,16 +68,17 @@ router.post("/sendEmail", (req, res) => {
     html: content,
   }  
 
-
-   const job = new cron.CronJob(new Date(date), () => {
-      transporter.sendMail(sendMsg, (error, info) => {
-        if (error) {
-          console.log(error);
-        } else {
-          console.log('Email sent: ' + info.response);
-        }
-      });
+  const job = new cron.CronJob(new Date(date), () => {
+    transporter.sendMail(sendMsg, (error, info) => {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email sent: ' + info.response);
+      }
     });
+  });
+  job.start();
+
 
   res.status(200).send({ message: "Successfully sent email!" });
   
