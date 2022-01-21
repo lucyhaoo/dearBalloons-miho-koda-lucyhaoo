@@ -77,9 +77,8 @@ router.post("/sendEmail", (req, res) => {
       }
     });
   });
-
+  job.start();
   res.status(200).send({ message: "Successfully sent email!" });
-
 });
 
 
