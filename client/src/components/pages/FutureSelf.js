@@ -5,7 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 
 const FutureSelf = (props) => {
-    const [gmail, setGmail] = useState("");
+    const [gmail, setGmail] = useState("");""
     const getGmail = (val) => {
         setGmail(val.target.value);
         console.warn(val.target.value);
@@ -15,7 +15,7 @@ const FutureSelf = (props) => {
 
     useEffect(() => {
       get("/api/whoami").then((user) => {
-        if (user.email) {
+        if (usergit.email) {
           // they are registed in the database, and currently logged in.
           setGmail(user.email);
         }
