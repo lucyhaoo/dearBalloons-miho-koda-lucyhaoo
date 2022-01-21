@@ -68,18 +68,19 @@ router.post("/sendEmail", (req, res) => {
     html: content,
   }  
 
-  const job = new cron.CronJob(date, () => {
-    transporter.sendMail(sendMsg, (error, info) => {
-      if (error) {
-        console.log(error);
-      } else {
-        console.log('Email sent: ' + info.response);
-      }
+
+   const job = new cron.CronJob(new Date(date), () => {
+      transporter.sendMail(sendMsg, (error, info) => {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log('Email sent: ' + info.response);
+        }
+      });
     });
-  });
 
   res.status(200).send({ message: "Successfully sent email!" });
-
+  
 });
 
 
@@ -134,7 +135,6 @@ router.get("/getmessage", (req, res) =>{
 router.all("*", (req, res) => {
   console.log(`API route not found: ${req.method} ${req.url}`);
   res.status(404).send({ msg: "API route not found" });
-})
+});
  
 module.exports = router;
-
