@@ -107,7 +107,6 @@ app.use((err, req, res, next) => {
 // hardcode port to 3000 for now
 const server = http.Server(app);
 socketManager.init(server);
-socket.init(server);
 
 
 server.listen(port, () => {
