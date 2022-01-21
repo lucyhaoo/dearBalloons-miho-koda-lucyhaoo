@@ -74,6 +74,12 @@ app.use(
   })
 );
 
+
+// load the compiled react files, which will serve /index.html and /bundle.js
+const reactPath = path.resolve(__dirname, "..", "client", "dist");
+app.use(express.static(reactPath));
+
+
 // connect user-defined routes
 app.use("/api", api);
 
@@ -85,9 +91,6 @@ app.get("*", (req, res) => {
 app.use(auth.populateCurrentUser);
 
 
-// load the compiled react files, which will serve /index.html and /bundle.js
-const reactPath = path.resolve(__dirname, "..", "client", "dist");
-app.use(express.static(reactPath));
 
 // any server errors cause this function to run
 app.use((err, req, res, next) => {
