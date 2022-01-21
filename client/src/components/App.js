@@ -49,7 +49,7 @@ function App() {
         <Skeleton path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
         <NotFound default />
       </Router>
-      <div className="main-page">
+      {/* <div className="main-page">
         {userId && (
           <NavBar />
         )}
@@ -60,7 +60,7 @@ function App() {
         <Route exact path="/Random" component={Random} />
         <Route exact path="/PickUp" component={PickUp} /> 
         
-      </div>
+      </div> */}
 
     </>
   );
