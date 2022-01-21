@@ -7,7 +7,6 @@ import draftToHtml from "draftjs-to-html";
 import FutureSelf from "./FutureSelf.js";
 import Friend from "./Friend.js";
 import Random from "./Random.js";
-import {Link} from "react-router-dom"; 
 
 
 

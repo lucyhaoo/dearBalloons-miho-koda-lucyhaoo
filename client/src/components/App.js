@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Router } from '@reach/router';
-import { Route } from 'react-router-dom';
 import NotFound from './pages/NotFound.js';
 import Skeleton from './pages/Skeleton.js';
 import HomePage from './pages/HomePage.js';
@@ -48,18 +47,20 @@ function App() {
       <Router>
         <Skeleton path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
         <NotFound default />
+
+        <HomePage exact path="/HomePage" />
+        <TextEditor exact path="/TextEditor" />
+        <Friend exact path="/Friend" />
+        <FutureSelf exact path="/FutureSelf" />
+        <Random exact path="/Random" />
+        <PickUp exact path="/PickUp" /> 
+        
       </Router>
       <div className="main-page">
         {userId && (
           <NavBar />
         )}
-        <Route exact path="/HomePage" component={HomePage} />
-        <Route exact path="/TextEditor" component={TextEditor} />
-        <Route exact path="/Friend" component={Friend} />
-        <Route exact path="/FutureSelf" component={FutureSelf} />
-        <Route exact path="/Random" component={Random} />
-        <Route exact path="/PickUp" component={PickUp} /> 
-        
+
       </div>
 
     </>
