@@ -51,7 +51,9 @@ const FutureSelf = (props) => {
         value="Submit"
         onClick={sendMessage}
       >
+        <a href="/SthElse">
         Submit
+        </a>
       </button>
     </div>
   );

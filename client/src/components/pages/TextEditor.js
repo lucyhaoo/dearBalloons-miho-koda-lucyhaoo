@@ -8,6 +8,9 @@ import FutureSelf from "./FutureSelf.js";
 import Friend from "./Friend.js";
 import Random from "./Random.js";
 
+//html
+
+import "../../utilities.css";
 
 
 const TextEditor = () => {
@@ -49,8 +52,6 @@ const TextEditor = () => {
   return (
     <div>
       {/*<input onChange={updateText} />*/}
-
-      
       <h1>THIS IS TEXT EDITOR</h1>
       {linkPage ? (linkPage == "FutureSelf" ? <FutureSelf content={getValue()}/> : null) : <Editor
         editorState={editorState}
@@ -66,13 +67,19 @@ const TextEditor = () => {
       
         {/*        <Link to={`/FutureSelf/${text}`} content="Hello">Send to your future self</Link>
        */}
-        <button onClick={button1}>Send to your future self</button>
-        <button onClick={button2}>Send to your friend</button>
-        <button onClick={button3}>Send to anyone</button>
+        <button onClick={button1}><a href="/FutureSelf">Send to your future self</a></button>
+        <button onClick={button2}><a href="/Friend">Send to your friend</a></button>
+        <button onClick={button3}><a href="/Random">Send to anyone</a></button>
+        <button><a href="/HomePage">Back</a></button>
+
+     
   </div>
+  
     
   );
 }
+
+
 
 
 export default TextEditor;

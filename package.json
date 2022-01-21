@@ -19,6 +19,11 @@
     "node": "16.x"
   },
   "dependencies": {
+    "@chakra-ui/react": "^1.7.4",
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
+    "@fontsource/open-sans": "^4.5.2",
+    "@fontsource/raleway": "^4.5.0",
     "@reach/router": "^1.3.4",
     "connect-ensure-login": "^0.1.1",
     "core-js": "^3.8.1",
@@ -28,6 +33,7 @@
     "draftjs-to-html": "^0.9.1",
     "express": "^4.17.2",
     "express-session": "^1.17.1",
+    "framer-motion": "^5.6.0",
     "google-auth-library": "^6.1.3",
     "mongoose": "^5.11.9",
     "node-cron": "^3.0.0",

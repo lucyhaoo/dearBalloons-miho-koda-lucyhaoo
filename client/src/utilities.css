@@ -15,21 +15,21 @@
 */
 
 /* TODO: REPLACE WITH YOUR OWN FONT! */
+
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 
 :root {
-  --primary: #396dff;
-  --primary--dim: #6987db;
-  --darkgrey: #d4d4d4;
-  --medgrey: #e0e0e0;
-  --grey: #f7f7f7;
-  --white: #fff;
+  --light_green: #a3a578;
+  --dark_green: #3f564c;
+  --beige: #ecdac4;
+  --brick: #ae7e74;
 
   --xs: 4px;
   --s: 8px;
   --m: 16px;
   --l: 24px;
 }
+
 
 body {
   margin: 0;

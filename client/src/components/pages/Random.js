@@ -45,8 +45,11 @@ const Random = (props) => {
       
 
       <button onClick={addMessage}>
+        <a href="/SthElse">
         submit
+        </a>
       </button>
+
 
       </div>
       

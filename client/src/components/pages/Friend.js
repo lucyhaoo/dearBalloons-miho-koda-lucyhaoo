@@ -61,6 +61,7 @@ const Friend = (props) => {
       >
         Submit
       </button>
+
     </div>
   );
 };

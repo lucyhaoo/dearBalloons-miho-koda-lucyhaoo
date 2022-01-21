@@ -8,10 +8,12 @@ import Friend from './pages/Friend.js';
 import Random from './pages/Random.js';
 import FutureSelf from './pages/FutureSelf.js';
 import PickUp from './pages/PickUp.js';
+import SthElse from './pages/SthElse.js';
 import '../utilities.css';
 import { socket } from '../client-socket.js';
-import NavBar from './pages/NavBar.js';
 import { get, post } from '../utilities';
+import { ChakraProvider } from '@chakra-ui/react';
+import theme from "./pages/theme.js";
 
 /**
  * Define the "App" component
@@ -42,28 +44,30 @@ function App() {
     post('/api/logout');
   };
 
+
   return (
-    <>
-      <Router>
-        <Skeleton path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
-        <NotFound default />
+    <ChakraProvider theme={theme}>      
+      <> 
+        <Router>
+          <Skeleton path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
+          <NotFound default />
 
-        <HomePage exact path="/HomePage" />
-        <TextEditor exact path="/TextEditor" />
-        <Friend exact path="/Friend" />
-        <FutureSelf exact path="/FutureSelf" />
-        <Random exact path="/Random" />
-        <PickUp exact path="/PickUp" /> 
-        
-      </Router>
-      <div className="main-page">
-        {userId && (
-          <NavBar />
-        )}
-
-      </div>
-
-    </>
+          <HomePage exact path="/HomePage" />
+          <TextEditor exact path="/TextEditor" />
+          <Friend exact path="/Friend" />
+          <FutureSelf exact path="/FutureSelf" />
+          <Random exact path="/Random" />
+          <PickUp exact path="/PickUp" />
+          <SthElse excat path="/SthElse" /> 
+          
+        </Router>
+        <div className="main-page">
+          {userId && (
+            <HomePage />
+          )}
+        </div>
+      </>
+    </ChakraProvider>
   );
 }
 

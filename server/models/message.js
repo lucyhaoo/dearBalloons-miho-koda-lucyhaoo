@@ -4,7 +4,7 @@ const MessageSchema = new mongoose.Schema({
     sender_mail: String,
     recipient_mail: String,
     content: String,
-    date: String
+    date: Date
 
 });
 
