@@ -34,7 +34,7 @@ const HomePage = () => {
         <div className="ob">
           <img src={ob} />
         </div>
-       
+        
       </div>
       
 
@@ -46,3 +46,4 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
