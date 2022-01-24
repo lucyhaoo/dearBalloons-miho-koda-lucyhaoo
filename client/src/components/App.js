@@ -12,7 +12,7 @@ import SthElse from './pages/SthElse.js';
 import '../utilities.css';
 import { socket } from '../client-socket.js';
 import { get, post } from '../utilities';
-import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import theme from "./pages/theme.js";
 
 /**
@@ -62,6 +62,7 @@ function App() {
           
         </Router>
         <div className="main-page">
+          <HomePage />
           {userId && (
             <HomePage />
           )}
