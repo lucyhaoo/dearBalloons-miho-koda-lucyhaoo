@@ -18,9 +18,7 @@ const HomePage = () => {
         </div>
       </h1>
       <ul>
-        <Button size='md' variant='light_blue'>
-        <a href="/TextEditor">Write to Someone!</a>
-          </Button>
+        <h1>Click on a balloon to write to someone!</h1>
          
          <Button size='md' variant='dark_blue'>
             <a href="/PickUp">Pick Up a Message!</a>

@@ -8,6 +8,8 @@ import FutureSelf from "./FutureSelf.js";
 import Friend from "./Friend.js";
 import Random from "./Random.js";
 
+import { Button, ButtonGroup } from '@chakra-ui/react';
+
 //html
 
 import "../../utilities.css";
@@ -67,10 +69,10 @@ const TextEditor = () => {
       
         {/*        <Link to={`/FutureSelf/${text}`} content="Hello">Send to your future self</Link>
        */}
-        <button onClick={button1}><a href="/FutureSelf">Send to your future self</a></button>
-        <button onClick={button2}><a href="/Friend">Send to your friend</a></button>
-        <button onClick={button3}><a href="/Random">Send to anyone</a></button>
-        <button><a href="/HomePage">Back</a></button>
+        <Button size='md' variant='orange' onClick={button1}><a href="/FutureSelf">Send to your future self</a></Button>
+        <Button size='md' variant='beige' onClick={button2}><a href="/Friend">Send to your friend</a></Button>
+        <Button size='md' variant='light_blue'onClick={button3}><a href="/Random">Send to anyone</a></Button>
+        <Button size='md' variant='dark_blue'><a href="/HomePage">Back</a></Button>
 
      
   </div>
