@@ -1,70 +1,71 @@
 .welcome{
     width: 50%;
     padding: 20px;
-    margin: 100px auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
+    margin: 80px auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.container{
-    width: 500px;
-    height: 500px;
+.balloonsContainer{
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.bb{
+.orangeBalloon{
     position: absolute;
-    bottom: 40px;
-    right: 1300px;
-    z-index:9;
+    top: 500px; left: 600px;
+    margin: 100px auto
 }
-.bb img{
-    transform: rotate(15deg);
+.orangeBalloon img{
+    transform: rotate(-25deg);
 }
-.bb:hover{
-    transform: scale(1.2);
-    z-index:2;
-}
-
-.db{
-    bottom: -80px;
-    right: -100px;
-    z-index:10;
-}
-.db img{
-    transform: rotate(-30deg);
-}
-.db:hover{
+.orangeBalloon:hover{
     transform: scale(1.1);
     z-index:2;
 }
 
-.lb{
+.beigeBalloon{
     position: absolute;
-    bottom: 20px;
-    right: 1200px;
-    z-index:9;
+    top: 500px; left: 700px;
+    margin: 50px auto
 }
-.lb img{
-    transform: rotate(20deg);
+.beigeBalloon img{
+    transform: rotate(-5deg);
 }
-.lb:hover{
+.beigeBalloon:hover{
     transform: scale(1.1);
     z-index:2;
 }
 
-.ob{
+.lightBalloon{
     position: absolute;
-    bottom: -40px;
-    right: 1100px;
-    z-index:9;
+    top: 500px; left: 815px;
+    margin: 50px auto
 }
-.ob img{
-    transform: rotate(35deg);
+.lightBalloon img{
+    transform: rotate(5deg);
 }
-.ob:hover{
-    transform: scale(1.2);
+.lightBalloon:hover{
+    transform: scale(1.1);
     z-index:2;
 }
+
+.darkBalloon{
+    position: absolute;
+    top: 500px; left: 895px;
+    margin: 100px auto
+}
+.darkBalloon img{
+    transform: rotate(25deg);
+}
+.darkBalloon:hover{
+    transform: scale(1.1);
+    z-index:2;
+}
+
+
 
 

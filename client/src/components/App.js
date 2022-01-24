@@ -19,28 +19,53 @@ import theme from "./pages/theme.js";
  * Define the "App" component
  */
 function App() {
-  const [userId, setUserId] = useState(undefined);
-
   useEffect(() => {
-    get('/api/whoami').then((user) => {
-      if (user._id) {
-        // they are registed in the database, and currently logged in.
-        setUserId(user._id);
-      }
-    });
+    const loggedInUser = localStorage.getItem("user");
+    if (loggedInUser !== null && typeof loggedInUser !== 'undefined' && loggedInUser !== 'undefined') {
+      const foundUser = JSON.parse(loggedInUser);
+      setUser(foundUser);
+    }
+    const loggedInUserId = localStorage.getItem("userId");
+    if (loggedInUserId !== null && typeof loggedInUserId !== 'undefined' && loggedInUserId !== 'undefined') {
+      const foundUserId = JSON.parse(loggedInUserId);
+      setUserId(foundUserId);
+    }
   }, []);
+
+  const useStickyState = (defaultValue, key) => {
+    const [value, setValue] = React.useState(() => {
+      const stickyValue = window.localStorage.getItem(key);
+      console.log(stickyValue);
+      return (stickyValue !== null && typeof stickyValue !== 'undefined' && stickyValue !== 'undefined')
+        ? JSON.parse(stickyValue)
+        : defaultValue;
+    });
+
+    React.useEffect(() => {
+      window.localStorage.setItem(key, JSON.stringify(value));
+    }, [key, value]);
+    return [value, setValue];
+  }
+
+  const [userId, setUserId] = useStickyState('', 'userId');
+  const [user, setUser] = useStickyState({}, 'user');
 
   const handleLogin = (res) => {
     console.log(`Logged in as ${res.profileObj.name}`);
     const userToken = res.tokenObj.id_token;
     post('/api/login', { token: userToken }).then((user) => {
       setUserId(user._id);
+      setUser(user);
       post('/api/initsocket', { socketid: socket.id });
     });
   };
 
   const handleLogout = () => {
+    console.log(user);
     setUserId(undefined);
+    window.localStorage.removeItem('userId');
+    window.localStorage.clear();
+    console.log('cleared');
     post('/api/logout');
   };
 

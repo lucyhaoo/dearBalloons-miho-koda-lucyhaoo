@@ -1,10 +1,10 @@
 import React from "react";
 import { Button, ButtonGroup } from '@chakra-ui/react';
-import bb from '../UI/beige_balloon.png';
-import db from '../UI/dark_balloon.png';
-import lb from '../UI/light_balloon.png';
-import ob from '../UI/orange_balloon.png';
-import welcome from '../UI/welcome.png';
+import BeigeBalloon from '../UI/beige_balloon.png';
+import DarkBalloon from '../UI/dark_balloon.png';
+import LightBallon from '../UI/light_balloon.png';
+import OrangeBallon from '../UI/orange_balloon.png';
+import Welcome from '../UI/welcome.png';
 import "./HomePage.css";
 
 
@@ -14,7 +14,7 @@ const HomePage = () => {
     <>
       <h1>
       <div className="welcome">
-          <img src={welcome} />
+          <img src={Welcome} />
         </div>
       </h1>
       <ul>
@@ -26,18 +26,18 @@ const HomePage = () => {
           
       </ul>
   
-      <div className="container">
-        <div className="ob">
-          <a href="/TextEditor"><img src={ob} /></a>
+      <div className="balloonsContainer">
+        <div className="orangeBalloon">
+          <a href="/TextEditor"><img src={OrangeBallon} /></a>
         </div>
-        <div className="bb">
-          <a href="/TextEditor"><img src={bb} /></a>
+        <div className="beigeBalloon">
+          <a href="/TextEditor"><img src={BeigeBalloon} /></a>
         </div>
-        <div className="lb">
-          <a href="/TextEditor"><img src={lb} /></a>
+        <div className="lightBalloon">
+          <a href="/TextEditor"><img src={LightBallon} /></a>
         </div>
-        <div className="db">
-          <a href="/TextEditor"><img src={db} /></a>
+        <div className="darkBalloon">
+          <a href="/TextEditor"><img src={DarkBalloon} /></a>
         </div>
         
       </div>

@@ -59,7 +59,12 @@ function populateCurrentUser(req, res, next) {
 }
 
 function ensureLoggedIn(req, res, next) {
-  if (!req.user) {
+  const path = req.url;
+  if (path.includes('socket')
+    || path.includes('login')) {
+      next();
+      return;
+  } else if (!req.user && !req.session.user) {
     return res.status(401).send({ err: "not logged in" });
   }
 
