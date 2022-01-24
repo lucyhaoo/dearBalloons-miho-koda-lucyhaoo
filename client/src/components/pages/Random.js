@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { get, post } from "../../utilities";
+import { Button, ButtonGroup } from '@chakra-ui/react';
 
 const Random = (props) => {
   const [gmail, setGmail] = useState("");
@@ -44,11 +45,11 @@ const Random = (props) => {
         <input value = {gmail} type = "text" onChange = {getGmail}/>
       
 
-      <button onClick={addMessage}>
+      <Button  size='md' variant='light_blue' onClick={addMessage}>
         <a href="/SthElse">
         submit
         </a>
-      </button>
+      </Button>
 
 
       </div>

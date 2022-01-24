@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { get, post } from "../../utilities";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { Button, ButtonGroup } from '@chakra-ui/react';
+
 
 
 const FutureSelf = (props) => {
@@ -46,18 +48,24 @@ const FutureSelf = (props) => {
       <h1>DATE: </h1>
       <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
 
-      <button
+      <Button
         type="submit"
         value="Submit"
         onClick={sendMessage}
+        size='md' 
+        variant='orange'
       >
         <a href="/SthElse">
         Submit
         </a>
-      </button>
+      </Button>
+
+      
     </div>
+
+
+
   );
 };
-
 export default FutureSelf;
 

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { get, post } from "../../utilities";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { Button, ButtonGroup } from '@chakra-ui/react';
 
 
 const Friend = (props) => {
@@ -54,13 +55,16 @@ const Friend = (props) => {
       <h1>DATE: </h1>
       <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
 
-      <button
+      <Button
         type="submit"
         value="Submit"
+        size='md' 
+        variant='beige'
         onClick={sendMessage}
       >
         Submit
-      </button>
+      </Button>
+      
 
     </div>
   );
