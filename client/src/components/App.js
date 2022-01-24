@@ -62,7 +62,6 @@ function App() {
           
         </Router>
         <div className="main-page">
-          <HomePage />
           {userId && (
             <HomePage />
           )}

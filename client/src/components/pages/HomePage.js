@@ -30,18 +30,18 @@ const HomePage = () => {
   
       <div className="container">
         <div className="ob">
-          <img src={ob} />
+          <a href="/TextEditor"><img src={ob} /></a>
         </div>
         <div className="bb">
-          <img src={bb} />
+          <a href="/TextEditor"><img src={bb} /></a>
         </div>
         <div className="lb">
-          <img src={lb} />
+          <a href="/TextEditor"><img src={lb} /></a>
         </div>
         <div className="db">
-          <img src={db} />
+          <a href="/TextEditor"><img src={db} /></a>
         </div>
-       
+        
       </div>
       
 
@@ -53,3 +53,4 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
