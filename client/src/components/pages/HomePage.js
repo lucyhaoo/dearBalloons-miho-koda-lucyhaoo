@@ -13,7 +13,7 @@ const HomePage = () => {
   return (
     <>
       <h1>
-      <div className="welc">
+      <div className="welcome">
           <img src={welcome} />
         </div>
       </h1>
