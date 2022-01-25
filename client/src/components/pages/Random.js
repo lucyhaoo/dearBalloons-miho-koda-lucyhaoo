@@ -1,6 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { get, post } from "../../utilities";
 import { Button, ButtonGroup } from '@chakra-ui/react';
+import {
+  FormControl,
+  FormLabel,
+  FormErrorMessage,
+  FormHelperText,
+  Input,
+} from '@chakra-ui/react';
+import "../../utilities.css";
+
 
 const Random = (props) => {
   const [gmail, setGmail] = useState("");
@@ -37,13 +46,19 @@ const Random = (props) => {
 
 
     return (
-      <div>
+      <div className="formContainer">
         <h1>Send to a Random Stranger</h1>
-        <h1>YOUR TEXT: </h1>
-        <div dangerouslySetInnerHTML={{__html: props.content}} />
-        <h1>YOUR EMAIL: </h1>
-        <input value = {gmail} type = "text" onChange = {getGmail}/>
-      
+
+        <FormControl>
+          <FormLabel>Your Text</FormLabel>
+          <div dangerouslySetInnerHTML={{__html: props.content}} />
+        </FormControl>
+        
+        <FormControl>
+          <FormLabel htmlFor='email'>Your Email address</FormLabel>
+          <Input id='email' value = {gmail} type = "text" onChange = {getGmail} />
+        </FormControl>
+
 
       <Button  size='md' variant='light_blue' onClick={addMessage}>
         <a href="/SthElse">

@@ -1,0 +1,12 @@
+
+.editor{
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.editor h1{
+    font-size: 35px;
+    line-height: 200%;
+    text-align: center;
+}

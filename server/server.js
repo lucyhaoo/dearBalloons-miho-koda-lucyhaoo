@@ -79,7 +79,7 @@ app.use(
 const reactPath = path.resolve(__dirname, "..", "client", "dist");
 app.use(express.static(reactPath));
 
-app.use(auth.ensureLoggedIn);
+//app.use(auth.ensureLoggedIn);
 
 // connect user-defined routes
 app.use("/api", api);

@@ -74,10 +74,10 @@ function App() {
     <ChakraProvider theme={theme}>      
       <> 
         <Router>
-          <Skeleton path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} />
+          {/* <Skeleton path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} /> */}
           <NotFound default />
 
-          <HomePage exact path="/HomePage" />
+          <HomePage exact path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId}/>
           <TextEditor exact path="/TextEditor" />
           <Friend exact path="/Friend" />
           <FutureSelf exact path="/FutureSelf" />
@@ -86,11 +86,11 @@ function App() {
           <SthElse excat path="/SthElse" /> 
           
         </Router>
-        <div className="main-page">
+        {/* <div className="main-page">
           {userId && (
             <HomePage />
           )}
-        </div>
+        </div> */}
       </>
     </ChakraProvider>
   );

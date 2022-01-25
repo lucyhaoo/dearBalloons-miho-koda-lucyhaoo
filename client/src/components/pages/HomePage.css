@@ -1,3 +1,4 @@
+
 .welcome{
     width: 50%;
     padding: 20px;
@@ -6,17 +7,26 @@
     margin-left: auto;
     margin-right: auto;
 }
+.welcome img{
+    padding-bottom: 70px;
+}
+.welcome h1{
+    font-size: 35px;
+    line-height: 200%;
+    text-align: center;
+}
 
 .balloonsContainer{
     width: 50%;
     display: block;
     margin-left: auto;
     margin-right: auto;
+    padding-bottom: 370px;
 }
 
 .orangeBalloon{
     position: absolute;
-    top: 500px; left: 600px;
+    top: 500px; left: 700px;
     margin: 100px auto
 }
 .orangeBalloon img{
@@ -29,7 +39,7 @@
 
 .beigeBalloon{
     position: absolute;
-    top: 500px; left: 700px;
+    top: 500px; left: 800px;
     margin: 50px auto
 }
 .beigeBalloon img{
@@ -42,7 +52,7 @@
 
 .lightBalloon{
     position: absolute;
-    top: 500px; left: 815px;
+    top: 500px; left: 915px;
     margin: 50px auto
 }
 .lightBalloon img{
@@ -55,7 +65,7 @@
 
 .darkBalloon{
     position: absolute;
-    top: 500px; left: 895px;
+    top: 500px; left: 995px;
     margin: 100px auto
 }
 .darkBalloon img{

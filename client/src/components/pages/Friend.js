@@ -3,6 +3,14 @@ import { get, post } from "../../utilities";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Button, ButtonGroup } from '@chakra-ui/react';
+import {
+  FormControl,
+  FormLabel,
+  FormErrorMessage,
+  FormHelperText,
+  Input,
+} from '@chakra-ui/react';
+import "../../utilities.css";
 
 
 const Friend = (props) => {
@@ -40,21 +48,28 @@ const Friend = (props) => {
 
 
     return (
-    <div>
-      <h1>Send to friend</h1>
-
-      <h1>YOUR TEXT: </h1>
-      <div dangerouslySetInnerHTML={{__html: props.content}} />
-
-      <h1>YOUR EMAIL: </h1>
-      <input value = {gmail} type = "text" onChange = {getGmail}/>
-
-      <h1>THEIR EMAIL: </h1>
-      <input value = {recmail} type="text" onChange = {getRecmail}/>
+    <div className="formContainer">
+      <FormControl>
+        <FormLabel>Your Text</FormLabel>
+        <div dangerouslySetInnerHTML={{__html: props.content}} />
+      </FormControl>
       
-      <h1>DATE: </h1>
-      <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
+      <FormControl>
+        <FormLabel htmlFor='email'>Your Email address</FormLabel>
+        <Input id='email' value = {gmail} type = "text" onChange = {getGmail} />
+      </FormControl>
 
+      <FormControl>
+        <FormLabel htmlFor='email'>Your Friend's Email address</FormLabel>
+        <Input id='email' value = {gmail} type = "text" onChange = {getRecmail} />
+      </FormControl>
+
+      <FormControl>
+        <FormLabel>Date</FormLabel>
+        <Input selected={startDate} onChange={(date) => setStartDate(date)}  type = "date" />
+        <FormHelperText>Select a date in the future!</FormHelperText>
+      </FormControl>
+    
       <Button
         type="submit"
         value="Submit"

@@ -88,3 +88,10 @@ form {
 .u-link:hover {
   color: var(--primary--dim);
 }
+
+.formContainer{
+  width: 40%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
