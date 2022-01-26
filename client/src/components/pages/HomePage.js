@@ -34,10 +34,10 @@ const HomePage = ({ userId, handleLogin, handleLogout }) => {
 
   return (
     <>
-      {authButton}
       <div className="welcome">
           <img src={Welcome} />
-
+          <h1>Choose a balloon to write to someone! OR</h1>
+          <h1>Click on the giftbox to receive a letter!</h1>
         </div>
       <ul>
 
@@ -45,6 +45,7 @@ const HomePage = ({ userId, handleLogin, handleLogout }) => {
       </ul>
       <div className="flex-container">
         <div className="balloonsContainer">
+
           <div className="orangeBalloon">
             <Link to="/TextEditor" state={{ color: "#f77c6c" }}><img src={OrangeBallon} /></Link>
           </div>
