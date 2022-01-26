@@ -40,6 +40,7 @@ const FutureSelf = (props) => {
         content: props.content, 
         date: startDate
       };
+
       post("/api/sendEmail", body)
     }
   
@@ -63,7 +64,7 @@ const FutureSelf = (props) => {
         />
         {!isError ? (
           <FormHelperText>
-            Enter the email you'd like to receive the newsletter on.
+            Enter the Gmail you'd like to receive the letter on.
           </FormHelperText>
         ) : (
           <FormErrorMessage>Email is required.</FormErrorMessage>
@@ -72,11 +73,11 @@ const FutureSelf = (props) => {
 
       <FormControl isInvalid={isError}>
         <FormLabel>Date</FormLabel>
-        <Input selected={startDate} onChange={(date) => setStartDate(date)}  type = "date" />
+        <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
 
         {!isError ? (
           <FormHelperText>
-            Enter the email you'd like to receive the newsletter on.
+            Select a date in the future!
           </FormHelperText>
         ) : (
           <FormErrorMessage>Date is required.</FormErrorMessage>
@@ -91,8 +92,9 @@ const FutureSelf = (props) => {
         size='md' 
         variant='orange'
       >
+        
         <a href="/SthElse">
-        Submit
+        submit
         </a>
       </Button>
 

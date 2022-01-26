@@ -16,17 +16,27 @@
     text-align: center;
 }
 
+
+.flex-container{
+    display:flex;
+}
+
 .balloonsContainer{
     width: 50%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    padding-bottom: 30px;
+    float: left;
+ }
+.pickup{
+    width: 50%;
+    bottom: 500px;
+}
+.pickup img:hover{
+    transform: scale(1.1);
+
 }
 
 .orangeBalloon{
     position: absolute;
-    top: 500px; left: 700px;
+    top: 500px; left: 300px;
     margin: 100px auto
 }
 .orangeBalloon img{
@@ -39,7 +49,7 @@
 
 .beigeBalloon{
     position: absolute;
-    top: 500px; left: 800px;
+    top: 500px; left: 400px;
     margin: 50px auto
 }
 .beigeBalloon img{
@@ -52,7 +62,7 @@
 
 .lightBalloon{
     position: absolute;
-    top: 500px; left: 915px;
+    top: 500px; left: 515px;
     margin: 50px auto
 }
 .lightBalloon img{
@@ -65,7 +75,7 @@
 
 .darkBalloon{
     position: absolute;
-    top: 500px; left: 995px;
+    top: 500px; left: 595px;
     margin: 100px auto
 }
 .darkBalloon img{
@@ -75,7 +85,5 @@
     transform: scale(1.1);
     z-index:2;
 }
-
-
 
 

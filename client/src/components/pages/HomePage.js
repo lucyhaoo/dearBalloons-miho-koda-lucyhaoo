@@ -6,6 +6,7 @@ import DarkBalloon from '../UI/dark_balloon.png';
 import LightBallon from '../UI/light_balloon.png';
 import OrangeBallon from '../UI/orange_balloon.png';
 import Welcome from '../UI/welcome.png';
+import Gift from '../UI/gift.png';
 import "./HomePage.css";
 import "../../utilities.css";
 import { Link } from '@reach/router';
@@ -42,26 +43,27 @@ const HomePage = ({ userId, handleLogin, handleLogout }) => {
 
           
       </ul>
-  
-      <div className="balloonsContainer">
-        <div className="orangeBalloon">
-          <Link to="/TextEditor" state={{ color: "#f77c6c" }}><img src={OrangeBallon} /></Link>
+      <div className="flex-container">
+        <div className="balloonsContainer">
+          <div className="orangeBalloon">
+            <Link to="/TextEditor" state={{ color: "#f77c6c" }}><img src={OrangeBallon} /></Link>
+          </div>
+          <div className="beigeBalloon">
+            <Link to="/TextEditor" state={{ color: '#f7cbb0'}}><img src={BeigeBalloon} /></Link>
+          </div>
+          <div className="lightBalloon">
+            <Link to="/TextEditor" state={{ color: '#afcfcc'}}><img src={LightBallon} /></Link>
+          </div>
+          <div className="darkBalloon">
+            <Link to="/TextEditor" state={{ color: '#066f84'}}><img src={DarkBalloon} /></Link>
+          </div>
+          
         </div>
-        <div className="beigeBalloon">
-          <Link to="/TextEditor" state={{ color: '#f7cbb0'}}><img src={BeigeBalloon} /></Link>
+        <div className = "pickup">
+          <Link to="/PickUp"><img src={Gift} /></Link>
         </div>
-        <div className="lightBalloon">
-          <Link to="/TextEditor" state={{ color: '#afcfcc'}}><img src={LightBallon} /></Link>
-        </div>
-        <div className="darkBalloon">
-          <Link to="/TextEditor" state={{ color: '#066f84'}}><img src={DarkBalloon} /></Link>
-        </div>
-        
       </div>
-
-         <Button size='md' variant='dark_blue'>
-            <a href="/PickUp">Pick Up a Message!</a>
-          </Button>
+         
       
 
       

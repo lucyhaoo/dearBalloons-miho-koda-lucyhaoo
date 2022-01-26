@@ -65,7 +65,7 @@ const Friend = (props) => {
         />
         {!isError ? (
           <FormHelperText>
-            Enter the email you'd like to receive the newsletter on.
+            Enter the Gmail you'd like to send the letter on.
           </FormHelperText>
         ) : (
           <FormErrorMessage>Email is required.</FormErrorMessage>
@@ -73,7 +73,7 @@ const Friend = (props) => {
       </FormControl>
 
       <FormControl isInvalid={isError}>
-        <FormLabel htmlFor='email'>Your Email address</FormLabel>
+        <FormLabel htmlFor='email'>Their Email address</FormLabel>
         <Input
           id='email'
           type='email'
@@ -82,7 +82,7 @@ const Friend = (props) => {
         />
         {!isError ? (
           <FormHelperText>
-            Enter the email you'd like to receive the newsletter on.
+            Enter the Gmail you'd like to receive the letter on.
           </FormHelperText>
         ) : (
           <FormErrorMessage>Email is required.</FormErrorMessage>
@@ -92,11 +92,11 @@ const Friend = (props) => {
 
       <FormControl isInvalid={isError}>
         <FormLabel>Date</FormLabel>
-        <Input selected={startDate} onChange={(date) => setStartDate(date)}  type = "date" />
+        <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
 
         {!isError ? (
           <FormHelperText>
-            Enter the email you'd like to receive the newsletter on.
+             Select a date in the future! 
           </FormHelperText>
         ) : (
           <FormErrorMessage>Date is required.</FormErrorMessage>
@@ -110,7 +110,9 @@ const Friend = (props) => {
         variant='beige'
         onClick={sendMessage}
       >
-        Submit
+        <a href="/SthElse">
+        submit
+        </a>
       </Button>
       
 

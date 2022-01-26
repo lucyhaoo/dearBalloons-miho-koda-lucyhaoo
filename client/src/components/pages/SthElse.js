@@ -7,7 +7,7 @@ const SthElse = () => {
   return (
     <div>
         <p>You message is sent successfully! Send Something Else!</p>
-        <Button size='xl' variant='orange'><a href="/HomePage">Go back to homepage!</a></Button>
+        <Button size='xl' variant='orange'><a href="/">Go back to homepage!</a></Button>
      
     </div>
   );
