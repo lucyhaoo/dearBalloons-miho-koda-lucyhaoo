@@ -17,6 +17,8 @@ const Random = (props) => {
       setGmail(val.target.value);
       console.warn(val.target.value);
     }
+  const isError = gmail === '';
+
 
     useEffect(() => {
       get("/api/whoami").then((user) => {
@@ -51,12 +53,25 @@ const Random = (props) => {
 
         <FormControl>
           <FormLabel>Your Text</FormLabel>
-          <div dangerouslySetInnerHTML={{__html: props.content}} />
+          <div dangerouslySetInnerHTML={{__html: props.location.state.content}} />
         </FormControl>
-        
-        <FormControl>
+    
+
+        <FormControl isInvalid={isError}>
           <FormLabel htmlFor='email'>Your Email address</FormLabel>
-          <Input id='email' value = {gmail} type = "text" onChange = {getGmail} />
+          <Input
+            id='email'
+            type='email'
+            value={gmail}
+            onChange={getGmail}
+          />
+          {!isError ? (
+            <FormHelperText>
+              Enter the email you'd like to receive the newsletter on.
+            </FormHelperText>
+          ) : (
+            <FormErrorMessage>Email is required.</FormErrorMessage>
+          )}
         </FormControl>
 
 

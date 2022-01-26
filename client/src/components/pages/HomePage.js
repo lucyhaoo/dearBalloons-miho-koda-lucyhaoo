@@ -36,7 +36,7 @@ const HomePage = ({ userId, handleLogin, handleLogout }) => {
       {authButton}
       <div className="welcome">
           <img src={Welcome} />
-          <h1>Click on a balloon to write to someone!</h1>
+
         </div>
       <ul>
 

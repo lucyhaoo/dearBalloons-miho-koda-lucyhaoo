@@ -19,6 +19,7 @@ const Friend = (props) => {
         setGmail(val.target.value);
         console.warn(val.target.value);
       }
+    const isError = gmail === '';
 
     const [startDate, setStartDate] = useState(new Date());
 
@@ -51,23 +52,55 @@ const Friend = (props) => {
     <div className="formContainer">
       <FormControl>
         <FormLabel>Your Text</FormLabel>
-        <div dangerouslySetInnerHTML={{__html: props.content}} />
+        <div dangerouslySetInnerHTML={{__html: props.location.state.content}} />
       </FormControl>
-      
-      <FormControl>
+
+      <FormControl isInvalid={isError}>
         <FormLabel htmlFor='email'>Your Email address</FormLabel>
-        <Input id='email' value = {gmail} type = "text" onChange = {getGmail} />
+        <Input
+          id='email'
+          type='email'
+          value={gmail}
+          onChange={getGmail}
+        />
+        {!isError ? (
+          <FormHelperText>
+            Enter the email you'd like to receive the newsletter on.
+          </FormHelperText>
+        ) : (
+          <FormErrorMessage>Email is required.</FormErrorMessage>
+        )}
       </FormControl>
 
-      <FormControl>
-        <FormLabel htmlFor='email'>Your Friend's Email address</FormLabel>
-        <Input id='email' value = {gmail} type = "text" onChange = {getRecmail} />
+      <FormControl isInvalid={isError}>
+        <FormLabel htmlFor='email'>Your Email address</FormLabel>
+        <Input
+          id='email'
+          type='email'
+          value={recmail}
+          onChange={setRecmail}
+        />
+        {!isError ? (
+          <FormHelperText>
+            Enter the email you'd like to receive the newsletter on.
+          </FormHelperText>
+        ) : (
+          <FormErrorMessage>Email is required.</FormErrorMessage>
+        )}
       </FormControl>
 
-      <FormControl>
+
+      <FormControl isInvalid={isError}>
         <FormLabel>Date</FormLabel>
         <Input selected={startDate} onChange={(date) => setStartDate(date)}  type = "date" />
-        <FormHelperText>Select a date in the future!</FormHelperText>
+
+        {!isError ? (
+          <FormHelperText>
+            Enter the email you'd like to receive the newsletter on.
+          </FormHelperText>
+        ) : (
+          <FormErrorMessage>Date is required.</FormErrorMessage>
+        )}
       </FormControl>
     
       <Button
