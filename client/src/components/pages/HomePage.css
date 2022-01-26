@@ -23,7 +23,7 @@
 
 .balloonsContainer{
     width: 50%;
-    float: left;
+    display:flex;
  }
 .pickup{
     width: 50%;

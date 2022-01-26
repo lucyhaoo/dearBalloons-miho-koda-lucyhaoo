@@ -11,7 +11,7 @@ import Random from "./Random.js";
 import HomePage from "./HomePage.js"
 import "./TextEditor.css";
 import { Box } from '@chakra-ui/react'
-
+import Buttons from "../UI/text_editor.png";
 import { Button, ButtonGroup } from '@chakra-ui/react';
 import { Stack, HStack, VStack } from '@chakra-ui/react'
 
@@ -40,12 +40,12 @@ const TextEditor = (props) => {
   
   return (
     <div className = "body" style={{backgroundColor: props.location.state.color}}>
-    <h1>Write a Letter!</h1>
+    <h1>Write your letter below!</h1>
       <div className = "editor" >
 
-        <Box bg='white' w='100%' p={2} border='2px' mt='100px' boxShadow='dark-lg'>
-          <img src="../UI/text_editor.png" />
-        </Box>
+        {/* <Box bg='white' w='100%' p={2} border='2px' mt='100px' boxShadow='dark-lg'>
+          <img src={Buttons} />
+        </Box> */}
         
         <Box bg='white' w='100%' p={4} border='2px' boxShadow='dark-lg' >
           {linkPage ? (linkPage == "FutureSelf" ? <FutureSelf content={getValue()}/> : null) : <Editor

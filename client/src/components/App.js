@@ -9,6 +9,7 @@ import Random from './pages/Random.js';
 import FutureSelf from './pages/FutureSelf.js';
 import PickUp from './pages/PickUp.js';
 import SthElse from './pages/SthElse.js';
+import NavBar from './pages/NavBar.js';
 import '../utilities.css';
 import { socket } from '../client-socket.js';
 import { get, post } from '../utilities';
@@ -69,12 +70,17 @@ function App() {
     post('/api/logout');
   };
 
+  const App = props => (
+    <>
+      <NavBar exact path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId}/>
+      {props.children}
+    </>
+  );
 
   return (
-    <ChakraProvider theme={theme}>      
-      <> 
-        <Router>
-          {/* <Skeleton path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId} /> */}
+    <ChakraProvider theme={theme}>   
+      <Router>
+        <App path="/">
           <NotFound default />
 
           <HomePage exact path="/" handleLogin={handleLogin} handleLogout={handleLogout} userId={userId}/>
@@ -84,14 +90,8 @@ function App() {
           <Random exact path="/Random" />
           <PickUp exact path="/PickUp" />
           <SthElse excat path="/SthElse" /> 
-          
-        </Router>
-        {/* <div className="main-page">
-          {userId && (
-            <HomePage />
-          )}
-        </div> */}
-      </>
+        </App>
+      </Router>
     </ChakraProvider>
   );
 }
