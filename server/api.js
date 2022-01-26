@@ -44,7 +44,7 @@ router.post("/initsocket", (req, res) => {
 });
 
 
-router.post("/sendEmail", (req, res) => {
+router.post("/sendemail", (req, res) => {
   // sending email
   console.log(req.body.recipient_mail);
 
@@ -131,7 +131,6 @@ router.post("/postmessage", (req, res) => {
 
 router.get("/getmessage", (req, res) =>{
   Message.findOneAndDelete({}).then((messages) => res.send(messages));
-
 });
 
 

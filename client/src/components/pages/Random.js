@@ -9,7 +9,7 @@ import {
   Input,
 } from '@chakra-ui/react';
 import "../../utilities.css";
-
+import { navigate } from "@reach/router";
 
 const Random = (props) => {
   const [gmail, setGmail] = useState("");
@@ -37,15 +37,18 @@ const Random = (props) => {
      * @param {string} date 
      */
       
-        const addMessage = (value) => {
-          console.log("work");
-          const body = { sender_mail: gmail, recipient_mail: gmail, content: props.content, date: "2"};
-          post("/api/postmessage", body);
-          
+      const addMessage = (value) => {
+        console.log("work");
+        const body = {
+          sender_mail: gmail,
+          recipient_mail: gmail,
+          content: props.location.state.content,
+          date: "2"
         };
-
-    
-
+        console.log(body);
+        post("/api/postmessage", body);
+        navigate(`/SthElse`)
+      };
 
     return (
       <div className="formContainer">
@@ -74,18 +77,10 @@ const Random = (props) => {
           )}
         </FormControl>
 
-
-      <Button  size='md' variant='light_blue' onClick={addMessage}>
-        <a href="/SthElse">
-        submit
-        </a>
-      </Button>
-
-
+        <Button  size='md' variant='light_blue' onClick={addMessage}>
+          submit
+        </Button>
       </div>
-      
-
-      
     );
 
 }
