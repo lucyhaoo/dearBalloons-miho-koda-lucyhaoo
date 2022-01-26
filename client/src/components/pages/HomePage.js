@@ -34,7 +34,6 @@ const HomePage = ({ userId, handleLogin, handleLogout }) => {
 
   return (
     <>
-      {authButton}
       <div className="welcome">
           <img src={Welcome} />
 

@@ -25,10 +25,9 @@ const PickUp = () => {
         <Spacer />
       <Button size='md' boxShadow='dark-lg' variant='light_blue'><a href="/">Back</a></Button>
 
-      <Box bg='dark_blue' w='50%' p={4}>
+      <Box bg='dark_blue' w='100%' p={10} border='2px' boxShadow='dark-lg'>
         {message.content + message.sender_mail}
       </Box>
-ß
     </div>
   );
 };

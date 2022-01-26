@@ -18,16 +18,22 @@
 
 
 .flex-container{
-    display:flex;
+    margin: 80px auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .balloonsContainer{
-    width: 50%;
-    display:flex;
+    margin: 80px auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
  }
 .pickup{
-    width: 50%;
-    bottom: 500px;
+    position: absolute;
+    top: 500px; left: 900px;
+    margin: 100px auto
 }
 .pickup img:hover{
     transform: scale(1.1);
